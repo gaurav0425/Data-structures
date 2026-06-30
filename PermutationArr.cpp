@@ -37,43 +37,124 @@
 
 // If we not use temp nd visited vector
 
-#include <iostream>
-#include <vector>
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// void permut(vector<int> &arr, vector<vector<int>> &ans, int index)
+// {
+
+//     if (index == arr.size())
+//     {
+//         ans.push_back(arr);
+//         return;
+//     }
+
+//     for (int i = index; i < arr.size(); i++)
+//     {
+//         swap(arr[i], arr[index]);
+//         permut(arr, ans, index + 1);
+//         swap(arr[i], arr[index]);
+//     }
+// }
+
+// int main()
+// {
+//     vector<int> arr;
+//     arr.push_back(1);
+//     arr.push_back(2);
+//     arr.push_back(3);
+//     vector<vector<int>> ans;
+
+//     permut(arr, ans, 0);
+
+//     for (int i = 0; i < ans.size(); i++)
+//     {
+//         for (int j = 0; j < ans[i].size(); j++)
+//         {
+//             cout << ans[i][j] << " ";
+//         }
+//         cout << endl;
+//     }
+// }
+
+
+//Permutation II
+
+//Given a collection of numbers, nums, that might contain duplicates, return all possible unique permutations in any order.
+
+// #include<iostream>
+// #include<vector>
+// using namespace std;
+
+// void permut(vector<int>&arr,vector<vector<int>>&ans,int index){
+
+//     if(index==arr.size()){
+//         ans.push_back(arr);
+//         return;
+//     }
+
+//     vector<bool>use(21,0);
+//     for(int i=index;i<arr.size();i++){
+//         if(use[arr[i] + 10]==0){
+//             swap(arr[i],arr[index]);
+//             permut(arr,ans,index+1);
+//             swap(arr[i],arr[index]);
+//             use[arr[i] + 10] = 1;
+//         }
+//     }
+// }
+
+// int main(){
+//     vector<int>arr;
+//     arr.push_back(1);
+//     arr.push_back(1);
+//     arr.push_back(2);
+//     arr.push_back(2);
+//     vector<vector<int>>ans;
+    
+//     permut(arr,ans,0);
+
+
+//      for (int i = 0; i < ans.size(); i++)
+//      {
+//          for (int j = 0; j < ans[i].size(); j++)
+//          {
+//              cout << ans[i][j] << " ";
+//          }
+//        cout << endl;
+// }
+// }
+
+
+
+//Ways to sum n 
+
+#include<iostream>
+#include<vector>
 using namespace std;
 
-void permut(vector<int> &arr, vector<vector<int>> &ans, int index)
-{
+int ways(vector<int>&arr,int sum,int n){
 
-    if (index == arr.size())
-    {
-        ans.push_back(arr);
-        return;
+    if(sum==0){
+        return 1;
     }
-
-    for (int i = index; i < arr.size(); i++)
-    {
-        swap(arr[i], arr[index]);
-        permut(arr, ans, index + 1);
-        swap(arr[i], arr[index]);
+    if(sum<0){
+        return 0;
     }
+    int ans = 0;
+    for(int i=0;i<n;i++){
+        ans+=ways(arr,sum-arr[i],n);
+    }
+    return ans;
 }
 
-int main()
-{
-    vector<int> arr;
+int main(){
+    vector<int>arr;
     arr.push_back(1);
-    arr.push_back(2);
-    arr.push_back(3);
-    vector<vector<int>> ans;
+    arr.push_back(5);
+    arr.push_back(6);
+    int sum = 7;
 
-    permut(arr, ans, 0);
-
-    for (int i = 0; i < ans.size(); i++)
-    {
-        for (int j = 0; j < ans[i].size(); j++)
-        {
-            cout << ans[i][j] << " ";
-        }
-        cout << endl;
-    }
+    cout<<ways(arr,sum,arr.size());
 }

@@ -35,53 +35,148 @@
 
 //Inheritance
 
+// #include<iostream>
+// using namespace std;
+
+// class Human{
+//     protected:
+//     string name;
+//     int age,weight;
+// };
+
+// // class Student : public Human{
+// //     int roll_no,fees;
+// // };
+
+// class Student : private Human{
+//     private : 
+//     int roll_no,fees;
+
+//     // public:
+//     // void fun(string a,int b,int c){
+//     //     name = a;
+//     //     age = b;
+//     //     weight = c;
+//     // }
+
+//     // void display(){
+//     //     cout<<name<<" "<<age<<" "<<weight;
+//     // }
+
+//     public:
+//     Student(string name,int age,int weight,int roll_no,int fees){
+//         this->name = name;
+//         this->age = age;
+//         this->weight = weight;
+//         this->roll_no = roll_no;
+//         this->fees = fees;
+//     }
+
+//     void display(){
+//         cout<<name<<" age is "<<age<<" nd its weight is "<<weight<<" roll no is "<<roll_no<<" nd fees is "<<fees;
+//     }
+
+// };
+
+// int main(){
+//     Student A("gaurav",22,55,37,120000);
+//     A.display();
+//     // A.name = "gaurav";
+//     // A.fun("gaurav",22,55);
+//     // A.display();
+// }
+
+
+
+// #include<iostream>
+// using namespace std;
+
+// class Animal{
+//     public:
+//     void eat(){
+//         cout<<"Animal is eating"<<endl;
+//     }
+// };
+
+// class Dog : public Animal{
+//     public:
+//     void bark(){
+//         cout<<"Animal is barking"<<endl;
+//     }
+// };
+
+// int main(){
+//     Dog d;
+//     d.bark();
+//     d.eat();
+// }
+
+
+// #include<iostream>
+// using namespace std;
+
+// class Human{
+//     protected:
+//     string name;
+//     int marks,age;
+// };
+
+// class Student:private Human{        
+//     private:
+//     int roll_no,fees;
+
+//     public:
+//     Student(string name,int marks,int age,int roll_no,int fees){
+//         this->name = name;
+//         this->marks = marks;
+//         this->age = age;
+//         this->roll_no = roll_no;
+//         this->fees = fees;
+//     }
+//     void display(){
+//         cout<<name<<" "<<marks<<" "<<age<<" "<<roll_no<<" "<<fees;
+//     }
+// };
+
+
+// int main(){
+//     Student s1("gaurav",99,22,37,100000);
+//     s1.display();
+// }
+
+
+//Single inheritance
 #include<iostream>
 using namespace std;
 
 class Human{
     protected:
     string name;
-    int age,weight;
-};
-
-// class Student : public Human{
-//     int roll_no,fees;
-// };
-
-class Student : private Human{
-    private : 
-    int roll_no,fees;
-
-    // public:
-    // void fun(string a,int b,int c){
-    //     name = a;
-    //     age = b;
-    //     weight = c;
-    // }
-
-    // void display(){
-    //     cout<<name<<" "<<age<<" "<<weight;
-    // }
+    int age;
 
     public:
-    Student(string name,int age,int weight,int roll_no,int fees){
+    Human(string name,int age){
         this->name = name;
         this->age = age;
-        this->weight = weight;
+    }
+};
+
+class Student : public Human{
+    private:
+    int roll_no,marks;
+
+    public:
+    Student(string name,int age,int roll_no,int marks): Human(name,age){
         this->roll_no = roll_no;
-        this->fees = fees;
+        this->marks = marks;
     }
 
     void display(){
-        cout<<name<<" age is "<<age<<" nd its weight is "<<weight<<" roll no is "<<roll_no<<" nd fees is "<<fees;
+        cout<<name<<" "<<age<<" "<<roll_no<<" "<<marks;
     }
-
 };
 
 int main(){
-    Student A("gaurav",22,55,37,120000);
-    A.display();
-    // A.name = "gaurav";
-    // A.fun("gaurav",22,55);
-    // A.display();
+    Student A1("gaurav",22,37,90);
+    A1.display();
 }

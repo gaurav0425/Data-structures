@@ -22,4 +22,4 @@ int main(){
     p->speak();
 }
 
-//pure virtual function
+//pure virtual functionphism

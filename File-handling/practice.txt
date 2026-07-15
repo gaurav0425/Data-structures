@@ -1,0 +1,4 @@
+Original array
+20 2 25 34 12 
+Sorted array
+2 12 20 25 34 
